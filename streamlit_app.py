@@ -8,7 +8,7 @@ LAST_GPT = True
 
 if 'api_key' not in globals():
     # api_key = os.getenv("OPENAI_API_KEY")
-    openai.api_key = "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"
+    openai.api_key = "sk-"
 else:
     try:
         api_key = st.text_input("Add your OpenAI API Key")
