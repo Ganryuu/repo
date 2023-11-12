@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ name: ai_chat_app
+ namespace: ai_chat
+spec:
+ replicas: 2
+ template:
+ metadata:
+ labels:
+ k8s-app: ai_chat_app
+ spec:
+ containers:
+ — name: k8s_python_demo_code
+ image: k8s_python_demo_code:0.1
+ imagePullPolicy: “IfNotPresent”
+ ports:
+ — containerPort: 4025
+ volumeMounts:
+ — mountPath: /app-data
+ name: k8s_python_demo_code
+ volumes:
+ — name: ai_chat_app
+ persistentVolumeClaim:
+ claimName: appclaim01
